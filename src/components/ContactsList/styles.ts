@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const ContactListHeader = styled.h3`
+  text-align: center;
+`;
+
 export const MainListWrapper = styled.div`
   margin: 2rem 0;
   border: 1px solid #ddd;
@@ -24,6 +28,10 @@ export const ListHeader = styled.p`
 export const ContactContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+
+  &:nth-child(odd) {
+    background-color: #e1dede;
+  }
 `;
 
 export const ContactFieldWrapper = styled.div`

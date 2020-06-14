@@ -5,6 +5,7 @@ import {
   MainForm,
   AddContactInput,
   AddNewContactBtn,
+  AddContactHeader,
 } from "./styles";
 import { addContact } from "../../store/actions/contacts.actions";
 
@@ -16,12 +17,14 @@ interface AddContactState {
 }
 
 const AddContact: React.FunctionComponent = () => {
-  const [contact, setContact] = useState<AddContactState>({
+  const initContactValues = (): AddContactState => ({
     firstName: "",
     lastName: "",
     dateOfBirth: "",
     phoneNumber: 0,
   });
+
+  const [contact, setContact] = useState<AddContactState>(initContactValues());
 
   const dispatch = useDispatch();
 
@@ -50,10 +53,13 @@ const AddContact: React.FunctionComponent = () => {
         ...contact,
       })
     );
+
+    setContact(initContactValues());
   };
 
   return (
     <MainContainer>
+      <AddContactHeader>Add New Contact</AddContactHeader>
       <MainForm onSubmit={handleSubmit}>
         <AddContactInput
           type='text'

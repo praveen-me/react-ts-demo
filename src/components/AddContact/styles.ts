@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const AddContactHeader = styled.h3`
+  text-align: center;
+`;
+
 export const MainContainer = styled.div`
   margin: 2rem auto;
   max-width: 350px;
