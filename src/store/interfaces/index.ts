@@ -1,6 +1,7 @@
 import * as ContactsInterfaces from "./contacts.actions.interface";
 
-export interface Contact {
+export interface ContactPayload {
+  id: number;
   firstName: string;
   lastName: string;
   dateOfBirth: string;
@@ -8,7 +9,9 @@ export interface Contact {
 }
 
 export interface InitialState {
-  contacts: Array<Contact>;
+  contacts: Array<ContactPayload>;
 }
 
-export type MainActionType = ContactsInterfaces.AddContact;
+export type MainActionType =
+  | ContactsInterfaces.AddContact
+  | ContactsInterfaces.DeleteContact;

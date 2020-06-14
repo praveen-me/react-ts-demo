@@ -16,6 +16,16 @@ const rootReducer = (state = initState, action: MainActionType) => {
       };
     }
 
+    case constants.DELETE_CONTACT: {
+      const { id } = action;
+      const contacts = [...state.contacts].filter((c) => c.id !== id);
+
+      return {
+        ...state,
+        contacts,
+      };
+    }
+
     default:
       return state;
   }

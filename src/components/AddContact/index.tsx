@@ -15,7 +15,7 @@ interface AddContactState {
   phoneNumber: number;
 }
 
-const AddContact = () => {
+const AddContact: React.FunctionComponent = () => {
   const [contact, setContact] = useState<AddContactState>({
     firstName: "",
     lastName: "",
@@ -29,7 +29,7 @@ const AddContact = () => {
     firstName = "",
     lastName = "",
     dateOfBirth = "",
-    phoneNumber = 0,
+    phoneNumber = "",
   } = contact;
 
   const handleChange = (e: React.SyntheticEvent): void => {
@@ -44,7 +44,12 @@ const AddContact = () => {
   const handleSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault();
 
-    dispatch(addContact(contact));
+    dispatch(
+      addContact({
+        id: Date.now(),
+        ...contact,
+      })
+    );
   };
 
   return (
@@ -75,7 +80,7 @@ const AddContact = () => {
           type='number'
           name='phoneNumber'
           value={phoneNumber}
-          max={10}
+          // max={10}
           placeholder='Enter Phone Number'
           onChange={handleChange}
         />

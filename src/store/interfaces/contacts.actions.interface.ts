@@ -1,7 +1,12 @@
 import * as constants from "../types";
-import { Contact } from "./index";
+import { ContactPayload } from "./index";
 
 export interface AddContact {
   type: constants.ADD_CONTACT;
-  contact: Contact;
+  contact: ContactPayload;
+}
+
+export interface DeleteContact {
+  type: constants.DELETE_CONTACT;
+  id: number;
 }

@@ -1,14 +1,21 @@
 import React from "react";
-import "./App.css";
+import { useSelector } from "react-redux";
 import AddContact from "./components/AddContact/";
 import { MainWrapper } from "./styles";
+import { InitialState } from "./store/interfaces";
+import ContactList from "./components/ContactsList";
 
-function App() {
+const App: React.FunctionComponent = () => {
+  const { contacts } = useSelector((state: InitialState) => state);
+
+  console.log(contacts);
+
   return (
     <MainWrapper className='App'>
       <AddContact />
+      <ContactList contacts={contacts} />
     </MainWrapper>
   );
-}
+};
 
 export default App;
