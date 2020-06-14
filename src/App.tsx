@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import AddContact from "./components/AddContact";
+import AddContact from "./components/AddContact/";
+import { MainWrapper } from "./styles";
 
 function App() {
   return (
-    <div className='App'>
+    <MainWrapper className='App'>
       <AddContact />
-    </div>
+    </MainWrapper>
   );
 }
 
