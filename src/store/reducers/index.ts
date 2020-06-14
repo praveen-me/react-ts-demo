@@ -26,6 +26,23 @@ const rootReducer = (state = initState, action: MainActionType) => {
       };
     }
 
+    case constants.EDIT_CONTACT: {
+      const { id, userData } = action;
+      const contactsCopy = [...state.contacts];
+
+      const currentContactIndex = contactsCopy.findIndex((c) => c.id === id);
+
+      contactsCopy[currentContactIndex] = {
+        id,
+        ...userData,
+      };
+
+      return {
+        ...state,
+        contacts: contactsCopy,
+      };
+    }
+
     default:
       return state;
   }

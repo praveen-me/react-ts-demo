@@ -8,8 +8,6 @@ import ContactList from "./components/ContactsList";
 const App: React.FunctionComponent = () => {
   const { contacts } = useSelector((state: InitialState) => state);
 
-  console.log(contacts);
-
   return (
     <MainWrapper className='App'>
       <AddContact />

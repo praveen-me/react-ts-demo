@@ -8,7 +8,10 @@ import {
   EditField,
 } from "./styles";
 import { ContactPayload } from "../../store/interfaces";
-import { deleteContact } from "../../store/actions/contacts.actions";
+import {
+  deleteContact,
+  editContact,
+} from "../../store/actions/contacts.actions";
 
 interface ContactProps {
   children?: React.ReactElement;
@@ -41,9 +44,6 @@ const Contact: React.FunctionComponent<ContactProps> = (props) => {
 
   const toggleEditMode = () => {
     setEditMode(!editMode);
-
-    if (!editMode) {
-    }
   };
 
   const handleChange = (e: React.SyntheticEvent): void => {
@@ -53,6 +53,11 @@ const Contact: React.FunctionComponent<ContactProps> = (props) => {
       ...state,
       [name]: value,
     }));
+  };
+
+  const handleEdit = () => {
+    dispatch(editContact(id, contactDetails));
+    toggleEditMode();
   };
 
   return (
@@ -107,7 +112,7 @@ const Contact: React.FunctionComponent<ContactProps> = (props) => {
       </ContactFieldWrapper>
       <ContactFieldWrapper>
         {editMode ? (
-          <ContactActionBtn onClick={toggleEditMode}>Save</ContactActionBtn>
+          <ContactActionBtn onClick={handleEdit}>Save</ContactActionBtn>
         ) : (
           <ContactActionBtn onClick={toggleEditMode}>Edit</ContactActionBtn>
         )}

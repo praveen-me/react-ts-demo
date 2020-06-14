@@ -14,4 +14,5 @@ export interface InitialState {
 
 export type MainActionType =
   | ContactsInterfaces.AddContact
-  | ContactsInterfaces.DeleteContact;
+  | ContactsInterfaces.DeleteContact
+  | ContactsInterfaces.EditContact;
